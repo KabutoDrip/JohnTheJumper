@@ -15,13 +15,17 @@ The project files and folders are organized as follows:
 ```
 root                    (project root folder)
 +-- JohnTheJumper       (source code for game)
-  +-- game              (specific classes)
+    +-- word.py         (selects word and evaluates input)
+    +-- terminal.py     (gets input and returns for use by word.py)
+    +-- display.py      (displays a parachute state in pygame as well as the progress towards the right word in the terminal)
+    +-- director.py     (directs the flow of the game by calling classes for gameplay loop)
   +-- main.py           (program entry point)
 +-- README.md           (general info)
 ```
 
 ## Required Technologies
 * Python 3.8.0
+* Pygame Module
 
 ## Authors
 *  Camden Miller
