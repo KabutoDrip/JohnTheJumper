@@ -24,7 +24,7 @@ root                    (project root folder)
 * Python 3.8.0
 
 ## Authors
-*  Camden
-*  Mary
-*  Kosie
-*  Jennifer
+*  Camden Miller
+*  Mary Goff
+*  Kosie Kameta
+*  Jennifer Walton
