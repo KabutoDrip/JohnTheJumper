@@ -34,7 +34,7 @@ class TerminalService:
 
 
 
-    def read_text(self, prompt):
+    # def read_text(self, prompt):
         """Gets text input from the terminal. Directs the user with the given prompt.
 
         Args: 
@@ -47,7 +47,7 @@ class TerminalService:
         return input(prompt)
 
     
-    def read_number(self, prompt):
+    # def read_number(self, prompt):
         """Gets numerical input from the terminal. Directs the user with the given prompt.
 
         Args: 
@@ -59,7 +59,7 @@ class TerminalService:
         """
         return float(input(prompt))
         
-    def write_text(self, text):
+    # def write_text(self, text):
         """Displays the given text on the terminal. 
 
         Args: 
