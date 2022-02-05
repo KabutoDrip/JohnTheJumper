@@ -17,15 +17,15 @@
 #   Args: 
 #       self (decoder): An instance of Decoder.
 
-# A getter to return the vaule of the hidden word.
-#   Args: 
-#       self (decoder): An instance of Decoder.
-
 # a setter that takes the player guess, checks if the letter is in the game word, updates good guess boolean,
 # updates the hidden word at the index of the letter(s) is in the game word.
 #   Args: 
 #       self (decoder): An instance of Decoder.
 #       guess (string): A single letter from guess from terminal input.
+
+# A getter to return the vaule of the hidden word.
+#   Args: 
+#       self (decoder): An instance of Decoder.
 
 # A getter to return the good guess boolean.
 #   Args: 
