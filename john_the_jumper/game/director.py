@@ -4,10 +4,10 @@ class Director:
   #  A module that directs the game. 
 
   #  Attributes:
-  #  is_playing (boolean): Whether or not to keep playing.
-  #  word: instance of Word class
-  #  terminal: instance of Terminal class
-  #  parachute: instance of Parachute class
+  #  _is_playing (boolean): Whether or not to keep playing.
+  #  _word: instance of Word class
+  #  _terminal: instance of Terminal class
+  #  _parachute: instance of Parachute class
   #  etc.
         
 
