@@ -5,9 +5,9 @@ class Director:
 
   #  Attributes:
   #  _is_playing (boolean): Whether or not to keep playing.
-  #  _word: instance of Word class
+  #  _decoder: instance of decoder class
   #  _terminal: instance of Terminal class
-  #  _parachute: instance of Parachute class
+  #  _display: instance of display class
   #  etc.
         
 
@@ -41,8 +41,8 @@ class Director:
     
     
   def _do_updates(self):
-    # Uses a Word method to check if the users guess is in the word
-    # Updates the display with the correctly guessed letters or cuts the cord using Parachute and Word methods
+    # Uses a decoder method to check if the users guess is in the decoder
+    # Updates the display with the correctly guessed letters or cuts the cord using display and decoder methods
 
      # Args:
      # self (Director): An instance of Director.
