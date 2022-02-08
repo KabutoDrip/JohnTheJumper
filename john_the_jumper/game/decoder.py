@@ -19,7 +19,7 @@ class Decoder():
 #   Args: 
 #       self (decoder): An instance of Decoder.
     def _game_word(self):
-        list = ["orange", "banana", "apple"]
+        list = ["orange", "banana"]
         word = random.choice(list)
         return word
 
@@ -27,10 +27,10 @@ class Decoder():
 #   Args: 
 #       self (decoder): An instance of Decoder.
     def _hidden_word(self):
-        hidden_word = ""
+        hidden_word = []
         for letter in self._game_word():
-            hidden_word += "_ "
-        hidden_word += "\n"
+            hidden_word.append("_")
+        hidden_word.append("\n")
         return hidden_word 
 
 # a setter that takes the player guess, checks if the letter is in the game word, updates good guess boolean,
@@ -38,12 +38,24 @@ class Decoder():
 #   Args: 
 #       self (decoder): An instance of Decoder.
 #       guess (string): A single letter from guess from terminal input.
+    def guess_in_word(self, guess):
+        letter_index = 0
+        if guess in self._game_word():
+            self._good_guess = True
+            for char in self._game_word():
+                if guess == char:
+                    self._hidden_word()[letter_index] = guess # Broken. Need to figure out how to update the list at the index.
+                letter_index += 1
+        else:
+            self._good_guess = False
+        
+        
 
 # A getter to return the vaule of the hidden word.
 #   Args: 
 #       self (decoder): An instance of Decoder.
     def get_hidden_word(self):
-        return self._hidden_word()
+        return " ".join(self._hidden_word())
 
 # A getter to return the good guess boolean.
 #   Args: 
@@ -53,6 +65,6 @@ class Decoder():
 
 # For debuging
 instance = Decoder()
-
+instance.guess_in_word("n")
 print(instance.get_hidden_word())
 print(instance.get_good_guess())
