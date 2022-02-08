@@ -1,6 +1,6 @@
-from game import decoder
-from game import terminal
-from display import display_layout  
+from game.decoder import Decoder
+from game.terminal import TerminalService 
+from game.display.display_layout import Display_game  
 
 class Director:
   #  A module that directs the game. 
@@ -21,8 +21,8 @@ class Director:
      
     self._is_playing = True
     self._decoder = Decoder()
-    self._terminal = Terminal()
-    self._display = Display()
+    self._terminal = TerminalService()
+    self._display = Display_game()
               
 
   def start_game(self):    
@@ -43,7 +43,7 @@ class Director:
     # Args:
     # self (Director): An instance of Director.
     
-    guess = self._terminal.get_input()
+    guess = self._terminal.read_a_character("\nGuess a letter [a-z]: ")
     return guess
       
   def _do_updates(self, guess):
@@ -53,7 +53,7 @@ class Director:
      # Args:
      # self (Director): An instance of Director.
 
-    guess_result = self._decoder.decode(self.guess)
+    guess_result = self._decoder.decode(guess)
     return guess_result  
       
       
@@ -63,9 +63,9 @@ class Director:
     # Args:
     # self (Director): An instance of Director.
 
-   self._terminal.print_answer(guess_result)
+   self._terminal.write_text(guess_result)
 
-   if self.display.cords == 0:
-     self.terminal.write_text("Sorry, you loose")
+   if self._display.chute_state == 0:
+     self._terminal.write_text("\nSorry, you loose")
      is_playing = False
   
