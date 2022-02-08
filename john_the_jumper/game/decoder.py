@@ -30,6 +30,7 @@ class Decoder():
         hidden_word = ""
         for letter in self._game_word():
             hidden_word += "_ "
+        hidden_word += "\n"
         return hidden_word 
 
 # a setter that takes the player guess, checks if the letter is in the game word, updates good guess boolean,
@@ -41,9 +42,17 @@ class Decoder():
 # A getter to return the vaule of the hidden word.
 #   Args: 
 #       self (decoder): An instance of Decoder.
+    def get_hidden_word(self):
+        return self._hidden_word()
 
 # A getter to return the good guess boolean.
 #   Args: 
 #       self (decoder): An instance of Decoder.
+    def get_good_guess(self):
+        return self._good_guess
 
+# For debuging
 instance = Decoder()
+
+print(instance.get_hidden_word())
+print(instance.get_good_guess())
