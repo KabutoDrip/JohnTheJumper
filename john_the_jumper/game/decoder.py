@@ -65,12 +65,3 @@ class Decoder():
     def get_good_guess(self):
         return self._good_guess
 
-# For debuging
-instance = Decoder()
-
-for i in range(6):
-    print(instance._game_word)
-    instance.guess_in_word(input("guess word "))
-    print(instance.get_hidden_word())
-    print(instance.word_guessed())
-print(instance.get_good_guess())

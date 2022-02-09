@@ -10,8 +10,7 @@ class Director:
   #  _decoder: instance of decoder class
   #  _terminal: instance of Terminal class
   #  _display: instance of display class
-  #  etc.
-        
+
 
   def __init__(self):
     # Constructs a new Director.
@@ -20,8 +19,8 @@ class Director:
     # self (Director): an instance of Director.
      
     self._is_playing = True
-    self._decoder = Decoder()
     self._terminal = TerminalService()
+    self._decoder = Decoder()
     self._display = Display_game()
               
 
@@ -31,6 +30,8 @@ class Director:
     # Args:
     # self (Director): an instance of Director.
     
+    self._terminal.write_text(self._decoder.get_hidden_word)
+
     while self._is_playing:
         self._get_inputs()
         self._do_updates()
@@ -53,19 +54,22 @@ class Director:
      # Args:
      # self (Director): An instance of Director.
 
-    guess_result = self._decoder.decode(guess)
-    return guess_result  
+    self._decoder.guess_in_word(guess)
+          
       
-      
-  def _do_outputs(self, guess_result):
+  def _do_outputs(self):
     # Uses a Terminal method to return the updated display
     
     # Args:
     # self (Director): An instance of Director.
+    
+    self._terminal.write_text(self._decoder.get_hidden_word())
+   
+    if self._decoder.word_guessed() == True:
+      self._terminal.write_text("\nGood Job! You guessed the secret word and landed safely!")
+      self._is_playing = False
 
-   self._terminal.write_text(guess_result)
 
-   if self._display.chute_state == 0:
-     self._terminal.write_text("\nSorry, you loose")
-     is_playing = False
-  
+    if self._display.chute_state == 0:
+      self._terminal.write_text("\nSorry, you lose.")
+      is_playing = False
