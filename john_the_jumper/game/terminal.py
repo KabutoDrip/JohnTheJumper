@@ -48,15 +48,16 @@ class TerminalService:
         """Check the input - alphabetic or not.
         Args: 
             letter: A letter to be checked.
-            num: number of input character (default = 1) 
+            num (integer): number of input character (default = 1) 
         Returns:
             True: When the letter is an alphabetic one. 
         """
 
-        if letter =   #####  will complet this part.... #####
-            is_alphabetic = True
-        else:
-            is_alphabetic = False
+        is_alphabetic = False
+        if len(letter) == num:
+            if letter.isalpha():
+                if letter.isascii():
+                   is_alphabetic = True
 
         return(is_alphabetic)
 
