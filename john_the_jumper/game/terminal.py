@@ -1,12 +1,16 @@
 # Just taken from terminal_service.py for Seeker
 # Will modify based on this as a template
 
+#from xmlrpc.client import Fault
+
+
 class TerminalService:
     """A service that handles terminal operations.
    
     The responsibility of a TerminalService is to provide input and output operations for the 
     terminal.
     """
+
 
     def read_a_character(self, prompt):
 
@@ -15,63 +19,57 @@ class TerminalService:
         Args: 
             self (TerminalService): An instance of TerminalService.
             prompt (string): The prompt to display on the terminal.
+        #    mode (default = a): selection for the kind of a imput character 
 
         Returns:
             string: The user's input as a text character. 
         """
 
-        input_letter = ""
+        # result after lowered and checked between a to z.
+        # will add a loop to check 
+        #  
 
         '''
         accept only a-z or A to Z
         convert upper_case to lower_case
-        
         '''
+        judge = False
+        while judge != True:
+            input_letter = input(prompt).low()
+            TerminalService.is_alphabetic_letter(input_letter)
+      
 
-
-        # return input(prompt)
         return input_letter
 
 
 
-    # def read_text(self, prompt):
-        """Gets text input from the terminal. Directs the user with the given prompt.
+    def _is_alphabetic_letter(letter, num = 1):
 
+        """Check the input - alphabetic or not.
         Args: 
-            self (TerminalService): An instance of TerminalService.
-            prompt (string): The prompt to display on the terminal.
-
+            letter: A letter to be checked.
+            num: number of input character (default = 1) 
         Returns:
-            string: The user's input as text.
+            True: When the letter is an alphabetic one. 
         """
-        return input(prompt)
+
+        if letter =   #####  will complet this part.... #####
+            is_alphabetic = True
+        else:
+            is_alphabetic = False
+
+        return(is_alphabetic)
+
 
     
-    # def read_number(self, prompt):
-        """Gets numerical input from the terminal. Directs the user with the given prompt.
 
-        Args: 
-            self (TerminalService): An instance of TerminalService.
-            prompt (string): The prompt to display on the terminal.
-
-        Returns:
-            float: The user's input as a number.
-        """
-        return float(input(prompt))
+    
         
-    # def write_text(self, text):
+    def write_text(self, text):
         """Displays the given text on the terminal. 
-
         Args: 
             self (TerminalService): An instance of TerminalService.
             text (string): The text to display.
         """
         print(text)
 
-'''
-08:09:54 開始 Mary Goff に 全員:
-	aguments: self, prompt
-08:10:20 開始 Mary Goff に 全員:
-	have it return  print(prompt)
-
-'''
