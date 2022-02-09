@@ -44,15 +44,19 @@ class TerminalService:
 
 
     def _is_alphabetic_letter(letter, num = 1):
-
-        """Check the input - alphabetic or not.
+        """
+        Check the input - alphabetic or not.
         Args: 
             letter: A letter to be checked.
             num (integer): number of input character (default = 1) 
         Returns:
             True: When the letter is an alphabetic one. 
         """
-
+        '''
+        accept only a-z or A to Z
+        convert upper_case to lower_case
+        '''
+ 
         is_alphabetic = False
         if len(letter) == num:
             if letter.isalpha():
@@ -67,7 +71,8 @@ class TerminalService:
     
         
     def write_text(self, text):
-        """Displays the given text on the terminal. 
+        """
+        Displays the given text on the terminal. 
         Args: 
             self (TerminalService): An instance of TerminalService.
             text (string): The text to display.
