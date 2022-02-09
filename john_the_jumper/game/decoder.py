@@ -21,7 +21,7 @@ class Decoder():
 #   Args: 
 #       self (decoder): An instance of Decoder.
     def _set_game_word(self):
-        list = ["orange", "banana"]
+        list = ["orange", "apple", "banana", "pineapple", "mango", "grape", "passionfruit", "guava", "tomato"]
         self._game_word = random.choice(list)
 
 # A setter that sets underscores, as the new value for the hidden word, for each letter in the game word.
