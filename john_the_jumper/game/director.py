@@ -46,14 +46,14 @@ class Director:
     guess = self._terminal.read_a_character("\nGuess a letter [a-z]: ")
     return guess
       
-  def _do_updates(self):
+  def _do_updates(self, guess):
     # Uses a decoder method to check if the users guess is in the decoder
     # Updates the display with the correctly guessed letters or cuts the cord using display and decoder methods
 
      # Args:
      # self (Director): An instance of Director.
 
-    self._decoder.guess_in_word(self._terminal.read_a_character("\nGuess a letter [a-z]: "))
+    self._decoder.guess_in_word(guess)
     print(self._display.update_display(self._decoder.get_good_guess))      
       
   def _do_outputs(self):
@@ -69,6 +69,6 @@ class Director:
       self._is_playing = False
 
 
-    if self._display.current_state == 0:
+    if self._display.current_state == 6:
       self._terminal.write_text("\nSorry, you lose.")
       is_playing = False
