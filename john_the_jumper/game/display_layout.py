@@ -3,27 +3,22 @@ from turtle import back
 from turtle import Screen
 import pygame
 from pygame import init, mixer
-from decoder import Decoder
-from terminal import TerminalService
+
 class Display_game:
-    guess = False
-    print(guess)
+    
     def __init__(self):
         ## initialize pygame, mixer, and pygame text
         pygame.init()
         mixer.init()
         pygame.font.init()
-        
-        
-    def set_values():
+        self.current_state = 0
+        self.chute_state
+        self.set_values()
+        self.create_surface()
+        self.mixer()
+    def set_values(self):
         #gets boolean from decoder and returns a chute state for use in display
         #makes all variables being sent between functions global for ease of access
-        global current_state
-        global chute_state
-        global word_surface
-        global word      
-        word = "hello"
-        current_state = 0
         chute_state = [0,1,2,3,4,5,6]
         # letter is what gets printed so wherever these are stored need to be printed here
         
@@ -36,16 +31,16 @@ class Display_game:
         chute_state[5] = "john_the_jumper\game\images/1.png"
         chute_state[6] = "john_the_jumper\game\images/0.png"
         #returns the parachute state as well as the letters to be printed
-        return chute_state[current_state],word
+        return chute_state[self.current_state]
     
     
-    def create_surface():
+    def create_surface(self):
         ## creates the surface in which the images are manipulated
         #makes all variables being sent between functions global for ease of access
-        global screen
-        global background_surface
-        global player_surface
-        global word_surface
+        self.screen
+        self.background_surface
+        self.player_surface
+        self.word_surface
         #creates the screen
         screen = pygame.display.set_mode((624,434))
         #names the screen
@@ -61,14 +56,14 @@ class Display_game:
         return screen,background_surface,word_surface
     
     
-    def mixer():
+    def mixer(self):
         ## loads mixer to play sounds
         mixer.music.load("john_the_jumper\game\sound\wind.wav")
         mixer.music.set_volume(0.7)
         mixer.music.play()
         
         
-    def update_display(screen,word,background_surface,player_surface,word_surface,chute_state,current_state):
+    def update_display(self,screen,background_surface,player_surface,word_surface,chute_state,current_state):
         ## update display with parachute state if player guesses incorrectly
         
         #!!!!!VAR THAT NEEDS TO BE UPDATED BY DECODER!!!!!
@@ -79,7 +74,6 @@ class Display_game:
         #loads the updated images and words based on what has been changed
         parachute_surface = pygame.image.load(chute_state[current_state])
         parachute_surface1 = pygame.transform.scale(parachute_surface,(200,200))
-        word_surface = word_surface.render(f"{word}", False, (212, 212, 212))
         #physically creates objects
         screen.blit(background_surface,(0,0))
         screen.blit(player_surface,(212,200))
@@ -97,12 +91,4 @@ class Display_game:
                     exit()
         
     
-    def terminal_response():
-        ## responds in the terminal based on your guess showing if it was correct or not.
-        print()
-init()
 
-Display_game.set_values()
-Display_game.create_surface()    
-Display_game.mixer()
-Display_game.update_display(screen,word,background_surface,player_surface,word_surface,chute_state,current_state)

@@ -35,7 +35,7 @@ class TerminalService:
         '''
         judge = False
         while judge != True:
-            input_letter = input(prompt).low()
+            input_letter = input(prompt).lower()
             TerminalService.is_alphabetic_letter(input_letter)
       
 
