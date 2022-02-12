@@ -43,7 +43,7 @@ class Director:
      # self (Director): An instance of Director.
 
     self._decoder.guess_in_word(self._terminal.read_a_character("\nGuess a letter [a-z]: "))
-    print(self._display.update_display(self._decoder.get_good_guess))      
+    self._display.update_display(self._decoder.get_good_guess)    
       
   def _do_outputs(self):
     # Uses a Terminal method to return the updated display
@@ -58,6 +58,6 @@ class Director:
       self._is_playing = False
 
 
-    if self._display.current_state == 6:
+    if self._display.get_current_state == 6:
       self._terminal.write_text("\nSorry, you lose.")
-      is_playing = False
+      self._is_playing = False

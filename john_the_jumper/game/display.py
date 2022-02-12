@@ -17,14 +17,14 @@ class Display_game:
         self.chute_state[6] = "7"
         
     def update_display(self,incorrect):
-        if incorrect == False:
+        returned = ""
+        if incorrect == True:
             returned = self.chute_state[self.current_state]
 
-        elif incorrect == True:
+        elif incorrect == False:
             self.current_state += 1
             returned = self.chute_state[self.current_state]
-
+            print(returned)
         return returned   
-    
-c = Display_game()
-c.update_display(True)
+    def get_current_state(self):
+        return self.current_state
