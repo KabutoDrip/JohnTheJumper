@@ -25,7 +25,6 @@ root                    (project root folder)
 
 ## Required Technologies
 * Python 3.8.0
-* Pygame Module
 
 ## Authors
 *  Camden Miller
