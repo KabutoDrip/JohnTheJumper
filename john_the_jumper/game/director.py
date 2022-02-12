@@ -1,6 +1,6 @@
 from game.decoder import Decoder
 from game.terminal import TerminalService 
-from game.display.display_layout import Display_game  
+from game.display_layout import Display_game  
 
 class Director:
   #  A module that directs the game. 
@@ -70,6 +70,6 @@ class Director:
       self._is_playing = False
 
 
-    if self._display.chute_state == 0:
+    if self._display.current_state == 0:
       self._terminal.write_text("\nSorry, you lose.")
       is_playing = False
