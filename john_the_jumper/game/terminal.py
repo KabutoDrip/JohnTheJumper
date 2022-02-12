@@ -11,7 +11,6 @@ class TerminalService:
     terminal.
     """
 
-
     def read_a_character(self, prompt):
 
         """Gets a text input from the terminal. Directs the user with the given prompt.
@@ -41,8 +40,6 @@ class TerminalService:
 
         return input_letter
 
-
-
     def _is_alphabetic_letter(self, letter, num = 1):
         """
         Check the input - alphabetic or not.
@@ -64,11 +61,6 @@ class TerminalService:
                    is_alphabetic = True
 
         return(is_alphabetic)
-
-
-    
-
-    
         
     def write_text(self, text):
         """

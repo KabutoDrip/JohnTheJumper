@@ -18,12 +18,11 @@ class Display_game:
         returned = ""
         if incorrect == True:
             returned = self._chute_state[self._current_state]
-            print(returned)
            
         elif incorrect == False:
             self._current_state += 1
             returned = self._chute_state[self._current_state]
-            print(returned)
         return returned   
+    
     def get_current_state(self):
         return self._current_state

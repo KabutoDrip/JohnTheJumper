@@ -31,6 +31,7 @@ class Director:
     # self (Director): an instance of Director.
     
     self._terminal.write_text(self._decoder.get_hidden_word())
+    #call parachute display
     while self._is_playing:
         self._do_updates()
         self._do_outputs()
@@ -43,7 +44,9 @@ class Director:
      # self (Director): An instance of Director.
 
     self._decoder.guess_in_word(self._terminal.read_a_character("\nGuess a letter [a-z]: "))
-    self._display.update_display(self._decoder.get_good_guess())    
+    
+    #"Jenny, use terminal with the line under this very obvious comment." -Jennifer
+    print("\n" + self._display.update_display(self._decoder.get_good_guess()) )   
       
   def _do_outputs(self):
     # Uses a Terminal method to return the updated display
@@ -51,7 +54,7 @@ class Director:
     # Args:
     # self (Director): An instance of Director.
     
-    self._terminal.write_text(self._decoder.get_hidden_word())
+    self._terminal.write_text("\n" + self._decoder.get_hidden_word())
    
     if self._decoder.word_guessed() == True:
       self._terminal.write_text("\nGood Job! You guessed the secret word and landed safely!")
