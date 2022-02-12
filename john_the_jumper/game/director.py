@@ -30,7 +30,7 @@ class Director:
     # Args:
     # self (Director): an instance of Director.
     
-    self._terminal.write_text(self._decoder.get_hidden_word)
+    self._terminal.write_text(self._decoder.get_hidden_word())
     while self._is_playing:
         self._do_updates()
         self._do_outputs()
@@ -43,7 +43,7 @@ class Director:
      # self (Director): An instance of Director.
 
     self._decoder.guess_in_word(self._terminal.read_a_character("\nGuess a letter [a-z]: "))
-    self._display.update_display(self._decoder.get_good_guess)    
+    self._display.update_display(self._decoder.get_good_guess())    
       
   def _do_outputs(self):
     # Uses a Terminal method to return the updated display
