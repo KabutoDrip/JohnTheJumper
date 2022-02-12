@@ -35,21 +35,14 @@ class Director:
         self._do_updates()
         self._do_outputs()
 
-    
-    # Args:
-    # self (Director): An instance of Director.
-    
-    guess = self._terminal.read_a_character("\nGuess a letter [a-z]: ")
-    return guess
-      
-  def _do_updates(self, guess):
+  def _do_updates(self):
     # Uses a decoder method to check if the users guess is in the decoder
     # Updates the display with the correctly guessed letters or cuts the cord using display and decoder methods
 
      # Args:
      # self (Director): An instance of Director.
 
-    self._decoder.guess_in_word(guess)
+    self._decoder.guess_in_word(self._terminal.read_a_character("\nGuess a letter [a-z]: "))
     print(self._display.update_display(self._decoder.get_good_guess))      
       
   def _do_outputs(self):
