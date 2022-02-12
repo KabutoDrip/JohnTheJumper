@@ -58,6 +58,6 @@ class Director:
       self._is_playing = False
 
 
-    if self._display.get_current_state == 6:
+    if self._display.get_current_state() == 4:
       self._terminal.write_text("\nSorry, you lose.")
       self._is_playing = False
