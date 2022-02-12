@@ -54,7 +54,7 @@ class Director:
      # self (Director): An instance of Director.
 
     self._decoder.guess_in_word(guess)
-    self._display.update_display(self._decoder.guess_in_word)      
+    self._display.update_display(self._decoder.get_good_guess)      
       
   def _do_outputs(self):
     # Uses a Terminal method to return the updated display

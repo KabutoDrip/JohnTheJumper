@@ -31,37 +31,39 @@ class Decoder():
         for letter in self._game_word:
             self._hidden_word.append("_")
 
-# a setter that takes the player guess, checks if the letter is in the game word, updates good guess boolean,
-# updates the hidden word at the index of the letter(s) is in the game word.
+# Checks if guess is in the game word.
+# Updates: 
+#   Hidden word with guess where the guess in game word.
+#   The good guess boolean.
 #   Args: 
 #       self (decoder): An instance of Decoder.
-#       guess (string): A single letter from guess from terminal input.
+#       guess (string): A single letter guess from terminal input.
     def guess_in_word(self, guess):
         if guess in self._game_word:
             self._good_guess = True
             letter_index = 0
             for char in self._game_word:
                 if guess == char:
-                    self._hidden_word[letter_index] = guess # Broken. Need to figure out how to update the list at the index.
+                    self._hidden_word[letter_index] = guess
                 letter_index += 1
             return "Good Job!"
         else:
             self._good_guess = False
             return "Oops, try again."
 
+# Win contition.
+#   Args: slef
     def word_guessed(self):
         return (self._game_word == "".join(self._hidden_word))
         
 
 # A getter to return the vaule of the hidden word.
-#   Args: 
-#       self (decoder): An instance of Decoder.
+#   Args: self
     def get_hidden_word(self):
         return " ".join(self._hidden_word)
 
 # A getter to return the good guess boolean.
-#   Args: 
-#       self (decoder): An instance of Decoder.
+#   Args: self
     def get_good_guess(self):
         return self._good_guess
 

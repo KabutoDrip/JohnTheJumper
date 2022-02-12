@@ -36,14 +36,14 @@ class TerminalService:
         judge = False
         while judge != True:
             input_letter = input(prompt).lower()
-            TerminalService.is_alphabetic_letter(input_letter)
+            judge = self._is_alphabetic_letter(input_letter)
       
 
         return input_letter
 
 
 
-    def _is_alphabetic_letter(letter, num = 1):
+    def _is_alphabetic_letter(self, letter, num = 1):
         """
         Check the input - alphabetic or not.
         Args: 
