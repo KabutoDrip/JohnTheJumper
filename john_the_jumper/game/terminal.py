@@ -5,10 +5,14 @@
 
 
 class TerminalService:
-    """A service that handles terminal operations.
-   
+    """
+    A service that handles terminal operations.
     The responsibility of a TerminalService is to provide input and output operations for the 
     terminal.
+
+    def read_a_character(self, prompt):
+    def _is_alphabetic_letter(self, letter, num = 1):
+    def write_text(self, text):
     """
 
     def read_a_character(self, prompt):
